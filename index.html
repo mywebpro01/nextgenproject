@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Webinar - Online Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a237e 0%, #311b92 100%);
+            color: white;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(to right, #00e5ff, #2979ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .presenter-card {
+            text-align: center;
+        }
+        
+        .presenter-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #00e5ff;
+            margin: 0 auto 20px;
+            background: linear-gradient(45deg, #2196f3, #00e5ff);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: white;
+        }
+        
+        .presenter-name {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            color: #00e5ff;
+        }
+        
+        .presenter-title {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .webinar-details {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .date-box {
+            background: linear-gradient(45deg, #ff4081, #f50057);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .date-box .date-label {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .date-box .date {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        .courses {
+            margin-bottom: 30px;
+        }
+        
+        .course-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #00e5ff;
+            text-align: center;
+        }
+        
+        .course-list {
+            list-style-type: none;
+        }
+        
+        .course-list li {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            border-left: 4px solid #00e5ff;
+            font-size: 1.1rem;
+        }
+        
+        .course-list li i {
+            margin-right: 10px;
+            color: #00e5ff;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(to right, #00e5ff, #2979ff);
+            color: white;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.3);
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 229, 255, 0.5);
+            background: linear-gradient(to right, #2979ff, #00e5ff);
+        }
+        
+        .btn i {
+            margin-right: 10px;
+        }
+        
+        .contacts {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        .contacts-title {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #00e5ff;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            min-width: 250px;
+            justify-content: center;
+        }
+        
+        .contact-btn:hover {
+            background: rgba(0, 229, 255, 0.2);
+            transform: translateY(-3px);
+            border-color: #00e5ff;
+        }
+        
+        .contact-btn i {
+            margin-right: 12px;
+            font-size: 1.3rem;
+            color: #00e5ff;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            background: linear-gradient(to right, #00e5ff, #ff4081);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        .footer-tagline {
+            opacity: 0.8;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .card {
+                width: 100%;
+            }
+            
+            .contact-btn {
+                width: 100%;
+            }
+        }
+        
+        /* Animation for cards */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        .presenter-card {
+            animation-delay: 0.2s;
+        }
+        
+        .webinar-details {
+            animation-delay: 0.4s;
+        }
+    </style>
+</head>
+<body>
+   <div class="header">
+    <h1>
+        <img src="NextGen_Logo-removebg-preview.png" alt="NextGen Logo" 
+             style="height:150px; vertical-align:middle; margin-right:10px;">
+        NextGen Innovation
+    </h1>
+
+
+
+    <p class="subtitle">
+        Register now for our free webinar and discover the latest trends in Artificial Intelligence (AI). 
+        Learn from industry experts and transform your career with cutting-edge AI technologies.
+    </p>
+</div>
+
+        
+        <div class="content">
+            <div class="card presenter-card">
+                <div class="presenter-img">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h2 class="presenter-name">Somnath Sontakke</h2>
+                <p class="presenter-title">AI Expert & Presenter</p>
+                <p>With over 10 years of experience in AI and software development, Somnath will guide you through the latest advancements and practical applications of AI in software testing and full-stack development.</p>
+                
+               <a href="https://meet.google.com/moi-tpkr-owm" class="btn" target="_blank" id="myBtn" disabled>
+    <i class="fas fa-user-plus"></i> Join Free Webinar
+</a>
+
+        <p id="status" style="margin-top: 10px;"></p> 
+            </div>
+            
+            <div class="card webinar-details">
+                <div class="date-box">
+                    <div class="date-label">Webinar Date</div>
+                    <div class="date">13th DEC 2025</div>
+                </div>
+                
+                <div class="courses">
+                    <h3 class="course-title">Featured Courses</h3>
+                    <ul class="course-list">
+                        <li><i class="fas fa-robot"></i> Software Testing With AI</li>
+                        <li><i class="fas fa-layer-group"></i> Full Stack Development With AI</li>
+                    </ul>
+                </div>
+                
+               <a href="https://chat.whatsapp.com/I5uymknV5sOAFIRH5pUEEr" class="btn" target="_blank" >
+    <i class="fas fa-calendar-check"></i> Join Whatsapp Group
+</a>
+
+   
+<a href="https://forms.gle/fLVVNmFPhtJHsX5V6" class="btn" target="_blank" >
+    <i class="fas fa-calendar-check"></i> click to free Registration
+</a>
+</div>
+        </div>
+        
+        <div class="contacts">
+            <h3 class="contacts-title"><i class="fas fa-phone-alt"></i> Contact for Registration & Queries</h3>
+            <p>Click on any number below to call or send a WhatsApp message</p>
+            
+            <div class="contact-buttons">
+                <a href="tel:7218270998" class="contact-btn">
+                    <i class="fas fa-phone"></i> Call: 7218270998
+                </a>
+                
+                <a href="tel:8459535411" class="contact-btn">
+                    <i class="fas fa-phone"></i> Call: 8459535411
+                </a>
+                
+                <a href="tel:9890004850" class="contact-btn">
+                    <i class="fas fa-phone"></i> Call: 9890004850
+                </a>
+<!--                 
+                <a href="https://wa.me/917218270998?text=Hi,%20I'm%20interested%20in%20the%20AI%20Webinar%20on%2013th%20Dec%202025" class="contact-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: 7218270998
+                </a>
+                
+                <a href="https://wa.me/918459535411?text=Hi,%20I'm%20interested%20in%20the%20AI%20Webinar%20on%2013th%20Dec%202025" class="contact-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: 8459535411
+                </a>
+                
+                <a href="https://wa.me/919890004850?text=Hi,%20I'm%20interested%20in%20the%20AI%20Webinar%20on%2013th%20Dec%202025" class="contact-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i> WhatsApp: 9890004850
+                </a> -->
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="footer-logo">NextGen Innovation</div>
+            <p class="footer-tagline">Pioneering the Future of Technology Education</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">© 2025 NextGen Innovation. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                if(this.getAttribute('href') === '#register') {
+                    // Show a registration form/modal (you can expand this)
+                    alert("Thank you for your interest! Our team will contact you shortly for registration. You can also call the numbers above for immediate assistance.");
+                }
+            });
+        });
+        
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = "1";
+                    entry.target.style.transform = "translateY(0)";
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards for scroll animation
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = "0";
+            card.style.transform = "translateY(30px)";
+            card.style.transition = "opacity 0.8s ease, transform 0.8s ease";
+            observer.observe(card);
+        });
+    </script>
+
+<script>
+// Set your target date & time here
+const targetDate = new Date("2025-12-13T10:00:00"); 
+// Format: YYYY-MM-DDTHH:MM:SS (24-hour format)
+
+function checkActivation() {
+    const now = new Date();
+    if (now >= targetDate) {
+        document.getElementById("myBtn").disabled = false;
+        document.getElementById("status").innerText = "Button is now ACTIVE!";
+    } else {
+        document.getElementById("myBtn").disabled = true;
+         document.getElementById("myBtn").style.pointerEvents="none";
+         document.getElementById("myBtn").style.background="gray";
+        document.getElementById("status").innerText =
+            "Link will activate on: " + targetDate.toString();
+    }
+}
+
+// Check every second
+setInterval(checkActivation, 1000);
+
+checkActivation();
+</script>
+</body>
+</html>
