@@ -434,14 +434,14 @@
 
 <script>
 // Set your target date & time here
-const targetDate = new Date("2025-12-04T03:44:00"); 
+const targetDate = new Date("2025-12-13T10:00:00"); 
 // Format: YYYY-MM-DDTHH:MM:SS (24-hour format)
 
 function checkActivation() {
     const now = new Date();
     if (now >= targetDate) {
         document.getElementById("myBtn").disabled = false;
-        document.getElementById("status").innerText = "Button is now ACTIVE!";
+        document.getElementById("status").innerText = "Link is now ACTIVE!";
     } else {
         document.getElementById("myBtn").disabled = true;
          document.getElementById("myBtn").style.pointerEvents="none";
